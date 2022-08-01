@@ -10,14 +10,14 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-class Site {
+class OpenSystemWeb {
 	
 
 	private static WebDriver driver;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 
@@ -26,30 +26,24 @@ class Site {
 	}
 
 	
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
-	
 	@AfterAll
 	static void tearDown() {
 		//driver.close();
 		driver.quit();
 	}
 
-//	@Test
-//	@DisplayName("axcess to homepage")
-//	void home() throws InterruptedException {
-//		driver.get("http://localhost:8080");
-//		Thread.sleep(2000);
-//	}
-//	
 	@Test
-	@DisplayName("verify title of tab")
-	void title() {
-		assertTrue(driver.getTitle().contentEquals("falacampus"));
+	@DisplayName("Open screen Home")
+	void home() throws InterruptedException {
+		driver.get("http://localhost:3000");
+		Thread.sleep(2000);
 	}
+	
+//	@Test
+//	@DisplayName("verify title of tab")
+//	void title() {
+//		assertTrue(driver.getTitle().contentEquals("falacampus"));
+//	}
 
 
 }
