@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.falacampus.testeSelenium;
+package br.edu.ifpb.dac.falacampus.testeselenium;
 
 import static org.junit.jupiter.api.Assertions.*;
 
