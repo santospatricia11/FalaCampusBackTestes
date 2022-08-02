@@ -3,6 +3,8 @@ package br.edu.ifpb.dac.falacampus.testeselenium;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,16 +14,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 class OpenSystemWeb {
 	
 
-	private static WebDriver driver;
+	private static WebDriver browser;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		browser = new ChromeDriver();
 	}
 
 	@BeforeAll
@@ -32,17 +35,20 @@ class OpenSystemWeb {
 	@AfterAll
 	static void tearDown() {
 		
-		driver.quit();
+		browser.quit();
 	}
 
 	@Test
 	@DisplayName("Open screen Home")
-	void home() throws InterruptedException {
-		driver.get("http://localhost:3000");
-		assertTrue("Título difere do esperado", driver.getTitle().contentEquals("Fala Campus"));
-			
-		Thread.sleep(3000);
+	void comentario() throws InterruptedException {
+		
 	}
+	
+	
+	
+	
+
+
 
 
 }

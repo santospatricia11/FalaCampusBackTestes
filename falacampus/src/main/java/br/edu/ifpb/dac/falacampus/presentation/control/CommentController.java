@@ -96,9 +96,9 @@ public class CommentController {
 	}
 
 	@DeleteMapping("{id}")
-	public ResponseEntity delete(@PathVariable("id") Long id, @RequestBody @Valid DetailsCommentDto dto) {
+	public ResponseEntity delete(@PathVariable("id") Long id /*, @RequestBody @Valid DetailsCommentDto dto*/) {
 		try {
-			
+			DetailsCommentDto dto = new DetailsCommentDto();
 			dto.setId(id);
 			Comment entity = detailsCommentConverterService.dtoToDetailsComment(dto);
 			
