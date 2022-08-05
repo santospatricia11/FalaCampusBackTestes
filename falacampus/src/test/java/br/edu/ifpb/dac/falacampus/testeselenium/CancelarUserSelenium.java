@@ -24,8 +24,6 @@ class CancelarUserSelenium {
 	private UserService userService;
 
 	private User user;
-	
-	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -36,8 +34,10 @@ class CancelarUserSelenium {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 	}
+
 	@Test
-	void seveUser() {
+	void canceleUser() throws InterruptedException {
+
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 
 		ChromeDriver driver = new ChromeDriver();
@@ -59,34 +59,29 @@ class CancelarUserSelenium {
 		WebElement senha = driver.findElement(By.id("inputPassword"));
 		senha.sendKeys("12345666999");
 
-		WebElement departament = driver.findElement(By.className("form-group"));
+		WebElement departament = driver.findElement(By.id("inputIdDepartament"));
 		Select select1 = new Select(departament);
 		select1.selectByIndex(2);
-
-		WebElement cancelar= driver.findElement(By.className("pi pi-times"));
+		Thread.sleep(5000);
+		WebElement cancelar = driver.findElement(By.className("pi pi-times"));
 		cancelar.click();
 
 	}
-	@Test
-	void deleteUser() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser =  new ChromeDriver();
-		browser.navigate().to("http://localhost:3000/viewUser");
 
-		
-		List<WebElement> excluir = browser.findElements(By.className("btn btn-primary btn-delete"));
+	@Test
+	void deleteUser() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.navigate().to("http://localhost:3000/viewUser");
+
+		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
 
 		// Excluir o primeiro user da list
-		
-     	excluir.get(0).click();
 
-		browser.navigate().to("http://localhost:3000/viewUser");
+		excluir.get(2).click();
 
-	}
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
+		driver.navigate().to("http://localhost:3000/viewUser");
+		Thread.sleep(5000);
 	}
 
 }

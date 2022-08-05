@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.falacampus.testeselenium;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -43,10 +44,9 @@ class CreateUserSelenium {
 
 	}
 
-//	@Test
-
 	@Test
-	void seveUser() {
+	// esse valido
+	void seveUser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 
 		ChromeDriver driver = new ChromeDriver();
@@ -66,39 +66,69 @@ class CreateUserSelenium {
 		select.selectByIndex(1);
 
 		WebElement senha = driver.findElement(By.id("inputPassword"));
-		senha.sendKeys("12345666999");
+		senha.sendKeys(" Q1@patrc");
+
+		//Thread.sleep(5000);
+		// Q1@patrc
 
 		WebElement selectDepartment = driver.findElement(By.id("inputIdDepartament"));
 		Select select2 = new Select(selectDepartment);
 		select2.selectByIndex(2);
 
-		WebElement salvar = driver.findElement(By.className("btn btn-success"));
+		WebElement salvar = driver.findElement(By.id("buttonSalvar"));
 		salvar.click();
-
+		Thread.sleep(5000);
 	}
 
 	@Test
-	void cancelarButtonCreateUser() {
+	void cancelarButtonCreateUser() throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
-		browser.navigate().to("http://localhost:3000/createUser");
+		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 
-		WebElement cancel = driver.findElement(By.className("btn btn-danger btn-cancel"));
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://localhost:3000/createUser");
+
+		WebElement cancel = driver.findElement(By.id("buttonCancelar"));
 		cancel.click();
-		browser.navigate().to("http://localhost:3000");
+		// Thread.sleep(5000);
+		driver.navigate().to("http://localhost:3000");
+
 	}
+
 	@Test
-	void updateUser() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser =  new ChromeDriver();
-		driver.navigate().to("http://localhost:3000/viewUser");
+	void updateUser() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 
-		
-		List<WebElement> editar = driver.findElements(By.className("btn btn-warning"));
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://localhost:3000/viewUsers");
 
-	
+		// Thread.sleep(5000);
+		List<WebElement> editar = driver.findElements(By.id("idEdit"));
+
 		editar.get(0).click();
+	
+
+//		WebElement name = driver.findElement(By.id("inputUserName"));
+//		name.sendKeys("Patricia Santos");
+//
+//		WebElement email = driver.findElement(By.id("inputEmail"));
+//		email.sendKeys("patricia@pereira.com");
+//
+//		WebElement matricula = driver.findElement(By.id("inputRegistration"));
+//		matricula.sendKeys("12345666999");
+//
+//		WebElement papel = driver.findElement(By.id("selectRole"));
+//		Select select = new Select(papel);
+//		select.selectByIndex(1);
+//
+//		WebElement senha = driver.findElement(By.id("inputPassword"));
+//		senha.sendKeys("Q1@patrc");
+//
+//		WebElement selectDepartment = driver.findElement(By.id("inputIdDepartament"));
+//		Select select2 = new Select(selectDepartment);
+//		select2.selectByIndex(1);
+//	
+
 	}
 
 	@AfterEach

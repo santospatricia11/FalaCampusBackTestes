@@ -33,35 +33,30 @@ class ListaUserSelenium {
 	}
 
 	@Test
-	void listarUser() {
+	void listarUser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 		ChromeDriver driver = new ChromeDriver();
+
 		driver.get("http://localhost:3000/viewUsers");
-		
+
 		WebElement name = driver.findElement(By.id("inputUserName"));
 		name.sendKeys("Patricia");
-		
-//		WebElement pesquisar= driver.findElement(By.className("btn btn-info"));
-//		pesquisar.click();
-		WebElement pesquisar = driver.findElement(By.cssSelector("button[type='btn btn-info']"));
+
+		WebElement pesquisar = driver.findElement(By.id("idPesquisar"));
 		pesquisar.click();
 
-
 	}
-	
-	
+
 	@Test
-	void cadastrarNovoUser() {
+	void cadastrarNovoUser() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 		ChromeDriver driver = new ChromeDriver();
-		
-		
+
 		driver.get("http://localhost:3000/viewUsers");
-		WebElement cadastrarNovoUser = driver.findElement(By.cssSelector("btn btn-success btn-cadastrar']"));
+		WebElement cadastrarNovoUser = driver.findElement(By.id("idNovoUser"));
 		cadastrarNovoUser.click();
-		driver.get("http://localhost:3000/crateUser");
+		driver.get("http://localhost:3002/createUser");
 	}
-	
 
 	@Test
 	void test() {
