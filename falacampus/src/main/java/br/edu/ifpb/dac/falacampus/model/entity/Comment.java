@@ -49,6 +49,7 @@ public class Comment implements Serializable {
 	private String title;
 	
 	@NotNull
+	@NotEmpty
 	@Size(min = 10, max=255)
 	@Column(name = "comment_message")
 	private String message;
