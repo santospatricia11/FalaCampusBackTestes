@@ -677,7 +677,7 @@ class CommentControllerSystemTest {
 		pause(browser, 50);
 	}
 
-	// Testando o botão Cancelar
+	// Testando o botão Cancelar - Tela Cadastrar Comentário
 	@Test
 	void testingCancelButtonOnTheCreateCommentScreen() {
 
@@ -729,6 +729,7 @@ class CommentControllerSystemTest {
 		pause(browser, 30);
 	}
 	
+	//***BOTÃO ATUALIZAR NÃO ESTÁ FUNCIONANDO***
 	@Test
 	void updateComment() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -746,6 +747,21 @@ class CommentControllerSystemTest {
 		editar.get(0).click();
 
 		pause(browser, 30);
+		
+//		WebElement inputTitle = browser.findElement(By.id("inputCommentTitle"));
+//		inputTitle.sendKeys("Dpto TI"); // 5 caracteres
+//
+//		pause(browser, 30);
+//
+//		WebElement message = browser.findElement(By.id("MessageTextarea"));
+//		message.sendKeys("Os computadores do Laboratório de ADS estão muito bonsssss");
+//
+//		pause(browser, 30);
+//
+//		WebElement buttonUpdate = browser.findElement(By.id("button-update"));
+//		buttonUpdate.click();
+//
+//		pause(browser, 30);
 	}
 	
 	@Test
@@ -787,5 +803,38 @@ class CommentControllerSystemTest {
 
 		pause(browser, 30);
 	}
+	
+	// Testando o botão Cancelar - Tela Atualizar Comentário
+		@Test
+		void testingCancelButtonOnTheUpdateCommentScreen() {
+
+			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+			WebDriver browser = new ChromeDriver();
+			browser.navigate().to("http://localhost:3000/viewComments");
+
+			pause(browser, 30);
+			pause(browser, 50);
+			pause(browser, 50);
+
+			// lista com todos os botoes editar
+			List<WebElement> editar = browser.findElements(By.id("button_editar"));
+
+			pause(browser, 40);
+			pause(browser, 50);
+			pause(browser, 50);
+
+			// editar a primeira linha
+			editar.get(0).click();
+
+			pause(browser, 50);
+			pause(browser, 50);
+
+			WebElement buttonCancel = browser.findElement(By.id("button-cancel"));
+			buttonCancel.click();
+
+			pause(browser, 50);
+			pause(browser, 50);
+			pause(browser, 50);
+		}
 
 }
