@@ -19,12 +19,12 @@ import org.openqa.selenium.support.ui.Select;
 class OpenSystemWeb {
 	
 
-	private static WebDriver browser;
+private static WebDriver driver;
 	
 	@BeforeEach
 	void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-		browser = new ChromeDriver();
+		driver = new ChromeDriver();
 	}
 
 	@BeforeAll
@@ -34,15 +34,19 @@ class OpenSystemWeb {
 	
 	@AfterAll
 	static void tearDown() {
-		
-		browser.quit();
+		driver.close();
+		//driver.quit();
 	}
 
 	@Test
 	@DisplayName("Open screen Home")
-	void comentario() throws InterruptedException {
-		
+	void home() throws InterruptedException {
+		driver.get("http://localhost:3000");
+		assertTrue(driver.getTitle().contentEquals("Fala Campus"));
+			
+		Thread.sleep(3000);
 	}
+
 	
 	
 	

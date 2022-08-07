@@ -1,4 +1,4 @@
-package br.edu.ifpb.dac.falacampus.testeselenium;
+package br.edu.ifpb.dac.falacampus.presentation.control;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,9 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.edu.ifpb.dac.falacampus.business.service.UserService;
 import br.edu.ifpb.dac.falacampus.model.entity.User;
-
-class CancelarUserSelenium {
+/*
+ * Testes da tela criar usuário
+ */
+class UserControllerSystem {
 	private static WebDriver driver;
+	private static final String URL = "http://localhost:3000/createUser";
 
 	@Autowired
 	private UserService userService;
@@ -36,12 +39,8 @@ class CancelarUserSelenium {
 	}
 
 	@Test
-	void canceleUser() throws InterruptedException {
-
-		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-
-		ChromeDriver driver = new ChromeDriver();
-		driver.get("http://localhost:3000/createUser");
+	void createUserWithValidFields() throws InterruptedException {
+		driver.get(URL);
 
 		WebElement name = driver.findElement(By.id("inputUserName"));
 		name.sendKeys("Patricia");
@@ -57,31 +56,54 @@ class CancelarUserSelenium {
 		select.selectByIndex(1);
 
 		WebElement senha = driver.findElement(By.id("inputPassword"));
-		senha.sendKeys("12345666999");
+		senha.sendKeys("AAee#12345666999*");
 
 		WebElement departament = driver.findElement(By.id("inputIdDepartament"));
 		Select select1 = new Select(departament);
 		select1.selectByIndex(2);
-		Thread.sleep(5000);
-		WebElement cancelar = driver.findElement(By.className("pi pi-times"));
-		cancelar.click();
+		
+		WebElement saveButton = driver.findElement(By.id("buttonSalvar"));
+		saveButton.click();
 
+		Thread.sleep(3000);
+		
+		driver.close();
 	}
 
+	
 	@Test
-	void deleteUser() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.navigate().to("http://localhost:3000/viewUser");
+	void cancelarButtonCreateUser() throws InterruptedException {
+		driver.get(URL);
 
-		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
+		WebElement cancel = driver.findElement(By.id("buttonCancelar"));
+		cancel.click();
+		
+		driver.navigate().to("http://localhost:3000");
+		Thread.sleep(3000);
 
-		// Excluir o primeiro user da list
-
-		excluir.get(2).click();
-
-		driver.navigate().to("http://localhost:3000/viewUser");
-		Thread.sleep(5000);
 	}
+//	@Test
+//	void deleteUser() throws InterruptedException {
+//		driver.get(URL);
+//
+//		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
+//
+//		excluir.get(2).click();
+//
+//		driver.navigate().to("http://localhost:3000/viewUser");
+//		Thread.sleep(5000);
+//	}
+	
+//	@Test
+//	void pressButtonCancel() throws InterruptedException {
+//		driver.get(URL);
+//		Thread.sleep(5000);
+//		WebElement buttonCancel = driver.findElement(By.id("buttonCancel"));
+//		buttonCancel.click();
+//		
+//		Thread.sleep(5000);
+//		driver.close();
+//	
+//	}
 
 }
