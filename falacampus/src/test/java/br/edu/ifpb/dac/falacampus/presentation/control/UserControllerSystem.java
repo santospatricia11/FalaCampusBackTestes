@@ -82,28 +82,6 @@ class UserControllerSystem {
 		Thread.sleep(3000);
 
 	}
-//	@Test
-//	void deleteUser() throws InterruptedException {
-//		driver.get(URL);
-//
-//		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
-//
-//		excluir.get(2).click();
-//
-//		driver.navigate().to("http://localhost:3000/viewUser");
-//		Thread.sleep(5000);
-//	}
-	
-//	@Test
-//	void pressButtonCancel() throws InterruptedException {
-//		driver.get(URL);
-//		Thread.sleep(5000);
-//		WebElement buttonCancel = driver.findElement(By.id("buttonCancel"));
-//		buttonCancel.click();
-//		
-//		Thread.sleep(5000);
-//		driver.close();
-//	
-//	}
+
 
 }
