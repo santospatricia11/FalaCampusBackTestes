@@ -17,7 +17,7 @@ class CommentControllerSystemTest {
 		browser.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 
-	//****Testes da Tela de Cadastrar Comentário****
+	//****TESTES DA TELA DE CADASTRAR COMENTÁRIO****
 	
 	@Test
 	void savingCommentWithValidFields() {
@@ -48,13 +48,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(1);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -120,13 +120,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -166,13 +166,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -212,13 +212,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -241,7 +241,7 @@ class CommentControllerSystemTest {
 		pause(browser, 30);
 
 		WebElement inputTitle = browser.findElement(By.id("inputCommentTitle"));
-		inputTitle.sendKeys("Dp TI"); // 5 caracteres
+		inputTitle.sendKeys("Coordenação de TI"); // 5 caracteres
 
 		pause(browser, 30);
 
@@ -258,13 +258,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -305,13 +305,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -351,13 +351,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -398,13 +398,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -414,7 +414,6 @@ class CommentControllerSystemTest {
 		pause(browser, 50);
 	}
 
-	// ***NÃO TÁ FUNCIONANDO - VER VALIDAÇÃO***
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
 	@Test
 	void tryingToSaveCommentWithTwoHundredAndFiftySixCharactersInTheMessageField() {
@@ -449,13 +448,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -496,13 +495,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -512,7 +511,6 @@ class CommentControllerSystemTest {
 		pause(browser, 50);
 	}
 
-	// ***NÃO TÁ FUNCIONANDO - VER VALIDAÇÃO***
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
 	@Test
 	void tryingToSaveCommentWithTwoHundredAndFiftyFiveCharactersInTheMessageField() {
@@ -532,10 +530,11 @@ class CommentControllerSystemTest {
 
 		// 255 caracteres
 		WebElement message = browser.findElement(By.id("MessageTextarea"));
-		message.sendKeys("Gostaria de parabenizar os envolvidos pela organizacao dos laboratorios "
-				+ "de informatica do curso de ADS, os computadores estao com uma configuracao "
-				+ "muito boa, isso e muito importante para o desenvolvimento dos projetos "
-				+ "sugeridos para as disciplinas, legal!");
+		message.sendKeys("Gostaria de parabenizar os envolvidos pela organizacao "
+				+ "dos laboratorios de informatica do curso de ADS pois os "
+				+ "computadores estao com uma configuracao muito boa isso é muito "
+				+ "importante para o desenvolvimento dos projetos sugeridos "
+				+ "nas disciplinas do curso");
 
 		pause(browser, 30);
 
@@ -547,13 +546,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -585,13 +584,13 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 30);
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -629,7 +628,7 @@ class CommentControllerSystemTest {
 
 		WebElement selectDepartment = browser.findElement(By.id("inputDepartamentDestination"));
 		Select select2 = new Select(selectDepartment);
-		select2.selectByIndex(4);
+		select2.selectByIndex(3);
 
 		pause(browser, 40);
 
@@ -667,7 +666,7 @@ class CommentControllerSystemTest {
 
 		WebElement selectAuthor = browser.findElement(By.id("inputUserAuthor"));
 		Select select1 = new Select(selectAuthor);
-		select1.selectByIndex(19);
+		select1.selectByIndex(6);
 
 		pause(browser, 40);
 
@@ -710,7 +709,7 @@ class CommentControllerSystemTest {
 		pause(browser, 30);
 	}
 
-	//****Testes da Tela de Listar Comentários****
+	//****TESTES DA TELA DE LISTAR COMENTÁRIOS****
 	
 	@Test
 	void createNewComment() {
@@ -729,7 +728,6 @@ class CommentControllerSystemTest {
 		pause(browser, 30);
 	}
 	
-	//***BOTÃO ATUALIZAR NÃO ESTÁ FUNCIONANDO***
 	@Test
 	void updateComment() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -747,21 +745,6 @@ class CommentControllerSystemTest {
 		editar.get(0).click();
 
 		pause(browser, 30);
-		
-//		WebElement inputTitle = browser.findElement(By.id("inputCommentTitle"));
-//		inputTitle.sendKeys("Dpto TI"); // 5 caracteres
-//
-//		pause(browser, 30);
-//
-//		WebElement message = browser.findElement(By.id("MessageTextarea"));
-//		message.sendKeys("Os computadores do Laboratório de ADS estão muito bonsssss");
-//
-//		pause(browser, 30);
-//
-//		WebElement buttonUpdate = browser.findElement(By.id("button-update"));
-//		buttonUpdate.click();
-//
-//		pause(browser, 30);
 	}
 	
 	@Test
@@ -812,14 +795,16 @@ class CommentControllerSystemTest {
 			WebDriver browser = new ChromeDriver();
 			browser.navigate().to("http://localhost:3000/viewComments");
 
-			pause(browser, 30);
+			pause(browser, 50);
 			pause(browser, 50);
 			pause(browser, 50);
 
 			// lista com todos os botoes editar
 			List<WebElement> editar = browser.findElements(By.id("button_editar"));
 
-			pause(browser, 40);
+			pause(browser, 50);
+			pause(browser, 50);
+			pause(browser, 50);
 			pause(browser, 50);
 			pause(browser, 50);
 
@@ -828,10 +813,15 @@ class CommentControllerSystemTest {
 
 			pause(browser, 50);
 			pause(browser, 50);
+			pause(browser, 50);
+			pause(browser, 50);
+			pause(browser, 50);
 
 			WebElement buttonCancel = browser.findElement(By.id("button-cancel"));
 			buttonCancel.click();
 
+			pause(browser, 50);
+			pause(browser, 50);
 			pause(browser, 50);
 			pause(browser, 50);
 			pause(browser, 50);
