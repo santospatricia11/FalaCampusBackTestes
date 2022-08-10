@@ -1,8 +1,12 @@
 package br.edu.ifpb.dac.falacampus.presentation.control;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -62,6 +66,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 30);
+		
+		//browser.quit(); //para fechar o navegador no final do teste
 	}
 
 	// Comentário com todos os campos inválidos
@@ -134,6 +140,10 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		//verifica se a mensagem de erro é exibida na página
+		//recupera elementos em uma páginae verifica se a mensagem está presente na página
+		Assert.assertTrue(browser.getPageSource().contains("Campo Título é obrigatório!"));
 	}
 
 	// Título: 5 - 50 caracteres; campo obrigatório
@@ -180,6 +190,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("O Título do Comentário deve ter no "
+				+ "mínimo 5 e no máximo 50 caracteres!"));
 	}
 
 	// Título: 5 - 50 caracteres; campo obrigatório
@@ -226,6 +239,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("O Título do Comentário deve ter no "
+				+ "mínimo 5 e no máximo 50 caracteres!"));
 	}
 
 	// Título: 5 - 50 caracteres; campo obrigatório
@@ -272,6 +288,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("Comentário criado com sucesso!"));
 	}
 
 	// Título: 5 - 50 caracteres; campo obrigatório
@@ -293,7 +311,7 @@ class CommentControllerSystemTest {
 		pause(browser, 30);
 
 		WebElement message = browser.findElement(By.id("MessageTextarea"));
-		message.sendKeys("Os computadores do Laboratório de ADS estão muito bons");
+		message.sendKeys("Os computadores do Laboratorio de ADS estao muito bons");
 
 		pause(browser, 30);
 
@@ -319,6 +337,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("Comentário criado com sucesso!"));
 	}
 
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
@@ -365,6 +385,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("Campo Mensagem é obrigatório!"));
 	}
 
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
@@ -412,6 +434,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("A mensagem do Comentário deve ter "
+				+ "no mínimo 10 e no máximo 255 caracteres!"));
 	}
 
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
@@ -462,6 +487,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("A mensagem do Comentário deve ter "
+				+ "no mínimo 10 e no máximo 255 caracteres!"));
 	}
 
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
@@ -509,6 +537,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("Comentário criado com sucesso!"));
 	}
 
 	// Mensagem: 10 - 255 caracteres; campo obrigatório
@@ -560,6 +590,8 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("Comentário criado com sucesso!"));
 	}
 
 	// Sem selecionar tipo de comentário
@@ -598,6 +630,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("É obrigatório informar o "
+				+ "Tipo de Comentário!"));
 	}
 
 	// Sem selecionar autor do comentário
@@ -636,6 +671,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("É obrigatório informar o "
+				+ "Autor do Comentário!"));
 	}
 
 	// Sem selecionar o Departamento para o qual será destinado o comentário
@@ -674,6 +712,9 @@ class CommentControllerSystemTest {
 		buttonSave.click();
 
 		pause(browser, 50);
+		
+		Assert.assertTrue(browser.getPageSource().contains("É obrigatório informar o Departamento "
+				+ "para o qual será direcionada a crítica, sugestão ou elogio!"));
 	}
 
 	// Testando o botão Cancelar - Tela Cadastrar Comentário
@@ -726,6 +767,10 @@ class CommentControllerSystemTest {
 		buttonCreateNewComment.click();
 
 		pause(browser, 30);
+		
+		//compara se a página que estamos no momento não é mais a página da viewComments 
+		//(redirecionamento para a tela de cadastro de comentário)
+		Assert.assertFalse(browser.getCurrentUrl().equals("http://localhost:3000/viewComments"));
 	}
 	
 	@Test
@@ -745,6 +790,8 @@ class CommentControllerSystemTest {
 		editar.get(0).click();
 
 		pause(browser, 30);
+		
+		Assert.assertFalse(browser.getCurrentUrl().equals("http://localhost:3000/viewComments"));
 	}
 	
 	@Test
@@ -785,6 +832,8 @@ class CommentControllerSystemTest {
 		responder.get(0).click();
 
 		pause(browser, 30);
+		
+		Assert.assertFalse(browser.getCurrentUrl().equals("http://localhost:3000/viewComments"));
 	}
 	
 	// Testando o botão Cancelar - Tela Atualizar Comentário
