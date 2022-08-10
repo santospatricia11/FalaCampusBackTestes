@@ -3,6 +3,7 @@ package br.edu.ifpb.dac.falacampus.presentation.control;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.edu.ifpb.dac.falacampus.business.service.UserService;
 import br.edu.ifpb.dac.falacampus.model.entity.User;
+
 /*
  * Testes da tela listar usuário
  */
@@ -47,24 +49,24 @@ class UserControllerSystem2 {
 
 		WebElement pesquisar = driver.findElement(By.id("idPesquisar"));
 		pesquisar.click();
-		
+
 		Thread.sleep(2000);
 		driver.close();
 	}
-	
+
 	@Test
 	void testButtonCreateNewUser() throws InterruptedException {
 		driver.get(URL);
-		
+
 		WebElement cadastrarNovoUser = driver.findElement(By.id("idNovoUser"));
 		cadastrarNovoUser.click();
-		
+
 		Thread.sleep(3000);
 		driver.navigate().to("http://localhost:3000/createUser");
 		Thread.sleep(2000);
 		driver.close();
 	}
-	
+
 	@Test
 	void updateUser() throws InterruptedException {
 		driver.get(URL);
@@ -75,33 +77,43 @@ class UserControllerSystem2 {
 		editar.get(1).click();
 		Thread.sleep(3000);
 		driver.close();
-		
+
 	}
-	
-	
-	
-//	@Test
-//	void deleteUser() throws InterruptedException {
-//		driver.get(URL);
-//
-//		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
-//
-//		excluir.get(2).click();
-//
-//		driver.navigate().to("http://localhost:3000/viewUser");
-//		Thread.sleep(5000);
-//	}
-	
-//	@Test
-//	void pressButtonCancel() throws InterruptedException {
-//		driver.get(URL);
-//		Thread.sleep(5000);
-//		WebElement buttonCancel = driver.findElement(By.id("buttonCancel"));
-//		buttonCancel.click();
-//		
-//		Thread.sleep(5000);
-//		driver.close();
-//	
-//	}
+
+	@Test
+	void deleteUser() throws InterruptedException {
+		driver.get(URL);
+
+		Thread.sleep(3000);
+
+		// lista com todos os botoes excluir
+		List<WebElement> excluir = driver.findElements(By.id("idExcluir"));
+
+		Thread.sleep(3000);
+
+		// Excluir a primeira linha
+		excluir.get(0).click();
+
+		Thread.sleep(3000);
+
+		driver.navigate().to("http://localhost:3000/viewUser");
+	}
+
+	// Testando o botão Cancelar - Tela Atualizar Usuario
+	@Test
+	void testingCancelButtonOnTheUpdateUserScreen() throws InterruptedException {
+
+		driver.get(URL);
+		Thread.sleep(3000);
+		// lista com todos os botoes editar
+		List<WebElement> editar = driver.findElements(By.id("idEdit"));
+		Thread.sleep(3000);
+
+		// editar a primeira linha
+		editar.get(1).click();
+
+		Thread.sleep(3000);
+
+	}
 
 }
