@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 class CommentControllerSystemTest {
+	
+	private WebDriver browser;
+
+    @BeforeEach
+    public void beforeEach() {
+    	System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        this.browser = new ChromeDriver();
+    }
 	
 	//Método para pausar algumas partes do testes
 	private void pause(WebDriver browser, int time) {
@@ -27,8 +36,6 @@ class CommentControllerSystemTest {
 
 		//Comentário com todos os campos válidos
 		
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -73,8 +80,6 @@ class CommentControllerSystemTest {
 	@Test
 	void tryingToSaveCommentWithInvalidFields() {
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -101,8 +106,6 @@ class CommentControllerSystemTest {
 
 		// Campo Título Nulo/Vazio
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -151,8 +154,6 @@ class CommentControllerSystemTest {
 
 		// Campo Título com 4 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -200,8 +201,6 @@ class CommentControllerSystemTest {
 
 		// Campo Título com 51 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -249,8 +248,6 @@ class CommentControllerSystemTest {
 
 		// Campo Título com exatamente 5 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -297,8 +294,6 @@ class CommentControllerSystemTest {
 
 		// Campo Título com 50 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -346,8 +341,6 @@ class CommentControllerSystemTest {
 
 		// Campo Mensagem Nulo/Vazio
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -394,8 +387,6 @@ class CommentControllerSystemTest {
 
 		// Campo Mensagem com 9 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -444,8 +435,6 @@ class CommentControllerSystemTest {
 
 		// Campo Mensagem com 256 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -497,8 +486,6 @@ class CommentControllerSystemTest {
 
 		// Campo Mensagem com 10 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -546,8 +533,6 @@ class CommentControllerSystemTest {
 
 		// Campo Mensagem com 255 caracteres
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -597,8 +582,6 @@ class CommentControllerSystemTest {
 	@Test
 	void tryingToSaveCommentWithoutSelectingCommentType() {
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -638,8 +621,6 @@ class CommentControllerSystemTest {
 	@Test
 	void tryingToSaveCommentWithoutSelectingCommentAuthor() {
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -676,11 +657,9 @@ class CommentControllerSystemTest {
 	}
 
 	// Sem selecionar o Departamento para o qual será destinado o comentário
-
 	@Test
 	void tryingToSaveCommentWithoutSelectingDepartamentDestination() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
+		
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -720,8 +699,6 @@ class CommentControllerSystemTest {
 	@Test
 	void testingCancelButtonOnTheCreateCommentScreen() {
 
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:3000/createComment");
 
 		pause(browser, 30);
@@ -774,8 +751,7 @@ class CommentControllerSystemTest {
 	
 	@Test
 	void updateComment() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
+
 		browser.navigate().to("http://localhost:3000/viewComments");
 
 		pause(browser, 30);
@@ -795,8 +771,7 @@ class CommentControllerSystemTest {
 	
 	@Test
 	void deleteComment() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
+
 		browser.navigate().to("http://localhost:3000/viewComments");
 
 		pause(browser, 30);
@@ -816,8 +791,7 @@ class CommentControllerSystemTest {
 	
 	@Test
 	void answerComment() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		WebDriver browser = new ChromeDriver();
+
 		browser.navigate().to("http://localhost:3000/viewComments");
 
 		pause(browser, 30);
@@ -839,8 +813,6 @@ class CommentControllerSystemTest {
 		@Test
 		void testingCancelButtonOnTheUpdateCommentScreen() {
 
-			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-			WebDriver browser = new ChromeDriver();
 			browser.navigate().to("http://localhost:3000/viewComments");
 
 			pause(browser, 50);
